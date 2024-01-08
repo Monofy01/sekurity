@@ -1,0 +1,24 @@
+Ciclo de vida de Jakarta con Ciclo de vida de Spring
+
+QUe es un servlet
+QUe es Jakarta
+Que es stateless
+
+
+FilterChain es una cadena de filtros que determina si se tiene o no acceso al Servlet
+
+DelegationFilterProxy, es un filtro que se inyecta en la cadena de filtros de Spring Security, permite crear un puente entre el ciclo de vida entre jakarta y el ApplicationContext de Spring
+
+FilterChainProxy, coordina la ejecucion del SecurityFilterChain de Spring con lo existente en Jakarta, dentro tiene una lista, Spring tiene su propio filter chain
+
+SecurityFilterChain puede administar mas de una cadena
+
+AuthenticationEntryPoint es el punto de entrada para las autenticaciones
+AccessDeniedHandler, si somos clientes yqueremos acceder a un recurso que no tenemos permiso nos lanza una excepcion
+
+AuthenticationManager es una API, que define como los filtros de security de SPring realiza el proceso de autenticacion, es una interfaz implementada por muchas clases, entre ellas el ProviderManager contiene un java util list que tiene objectos de tipo AuthenticationProvider
+AuthenticationProvider son objetos que definen ciertas formas de hacer login
+
+SecurityContextHolder, setea el SecurityContext de cada peticion, dentro tiene un objeto de tipo Authentication, representa el usuario que esta logeado,tiene Principal -> username, Credentials -> pass, Authorities -> permisos sobre recursos
+
+
